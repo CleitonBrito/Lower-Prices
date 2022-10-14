@@ -14,7 +14,11 @@ class CreateMercadosTable extends Migration
     public function up()
     {
         Schema::create('mercados', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id')->unique();
+            $table->string('name', 50);
+            $table->string('address', 80);
+            $table->string('city', 50);
+            $table->char('UF', 2);
             $table->timestamps();
         });
     }
