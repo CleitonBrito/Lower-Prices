@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    private $produto;
+    private $product;
 
-    public function __construct(Products $produto){
-        $this->produto = $produto;
+    public function __construct(Products $product){
+        $this->product = $product;
     }
 
-    public function mercado(){
-        return $this->belongsTo(Markets::class, 'fk_id_mercado');
+    public function market(){
+        return $this->belongsTo(Markets::class, 'fk_id_market');
     }
 }
