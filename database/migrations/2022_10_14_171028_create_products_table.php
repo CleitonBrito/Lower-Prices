@@ -13,16 +13,16 @@ class CreateProdutosTable extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
-            $table->uuid('id_produto')->unique();
-            $table->string('fk_mercado')->nullable();
+        Schema::create('products', function (Blueprint $table) {
+            $table->uuid('id_product')->unique();
+            $table->string('fk_market');
             $table->string('name', 50);
             $table->string('description', 100);
             $table->double('price', 5, 2);
             $table->timestamps();
 
-            $table->foreign('fk_mercado')
-                ->references('id_mercado')->on('mercados')
+            $table->foreign('fk_market')
+                ->references('id_market')->on('markets')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });

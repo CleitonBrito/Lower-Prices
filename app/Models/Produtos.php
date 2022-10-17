@@ -2,20 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Produtos;
 use App\Models\Mercados;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
 class Produtos extends Model
 {
-    use Notifiable;
     private $produto;
 
-    public function __construct(Produto $produto){
+    public function __construct(Produtos $produto){
         $this->produto = $produto;
     }
 
     public function mercado(){
-        return $this->belongsTo(Mercado::class, 'fk_id_mercado');
+        return $this->belongsTo(Mercados::class, 'fk_id_mercado');
     }
 }
