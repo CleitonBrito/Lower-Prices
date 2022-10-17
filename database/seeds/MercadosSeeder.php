@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mercados;
 use Illuminate\Database\Seeder;
 
 class MercadosSeeder extends Seeder
@@ -11,6 +12,6 @@ class MercadosSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Mercados::class)->create();
     }
 }
