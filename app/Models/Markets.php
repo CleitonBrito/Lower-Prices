@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\Market;
+use App\Models\Markets;
 use App\Models\Products;
 use Illuminate\Database\Eloquent\Model;
 
-class Market extends Model
+class Markets extends Model
 {
     private $mercado;
 
-    public function __construct(Market $mercado){
+    public function __construct(Markets $mercado){
         $this->mercado = $mercado;
     }
 

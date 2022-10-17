@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Produtos;
+use App\Models\Markets;
 use Illuminate\Database\Seeder;
 
-class ProdutosSeeder extends Seeder
+class MarketsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ProdutosSeeder extends Seeder
      */
     public function run()
     {
-        factory(Produtos::class, 100)->create();
+        factory(Markets::class)->create();
     }
 }

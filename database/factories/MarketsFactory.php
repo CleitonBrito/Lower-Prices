@@ -2,12 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Mercados;
+use App\Models\Market;
 use Faker\Generator as Faker;
 
-$factory->define(Mercados::class, function (Faker $faker) {
+$factory->define(Market::class, function (Faker $faker) {
     return [
-        'id_mercado' => $faker->uuid,
+        'id_market' => $faker->uuid,
         'name' => $faker->company,
         'address' => $faker->address,
         'city' => $faker->city,
