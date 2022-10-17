@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMercadosTable extends Migration
+class CreateMarketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMercadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('market', function (Blueprint $table) {
+        Schema::create('markets', function (Blueprint $table) {
             $table->uuid('id_market')->unique();
             $table->string('name', 50);
             $table->string('address', 150);
