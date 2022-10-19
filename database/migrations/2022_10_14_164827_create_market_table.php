@@ -14,7 +14,7 @@ class CreateMarketTable extends Migration
     public function up()
     {
         Schema::create('markets', function (Blueprint $table) {
-            $table->uuid('id_market')->unique();
+            $table->uuid('id_market')->primary();
             $table->string('name', 50);
             $table->string('address', 150);
             $table->string('city', 50);

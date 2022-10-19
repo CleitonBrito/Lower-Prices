@@ -2,10 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Market;
+use App\Models\Markets;
+use App\Models\Products;
 use Faker\Generator as Faker;
 
-$factory->define(Market::class, function (Faker $faker) {
+$factory->define(Markets::class, function (Faker $faker) {
     return [
         'id_market' => $faker->uuid,
         'name' => $faker->company,
