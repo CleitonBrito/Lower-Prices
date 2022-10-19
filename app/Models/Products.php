@@ -8,13 +8,35 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    // private $product;
+    protected $fillable = [
+        'id_product',
+        'fk_market',
+        'name',
+        'description',
+        'price'
+    ];
 
-    // public function __construct(Products $product){
-    //     $this->product = $product;
-    // }
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'products';
 
-    // public function market(){
-    //     return $this->belongsTo(Markets::class, 'fk_id_market');
-    // }
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_product';
+
+    protected $casts = [
+        'id_market' => 'string'
+    ];
+
+    protected $keyType = 'string';
+
+    public function market(){
+        return $this->belongsTo(Markets::class, 'fk_market');
+    }
 }
