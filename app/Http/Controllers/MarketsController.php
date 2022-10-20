@@ -16,7 +16,6 @@ class MarketsController extends Controller
     public function index()
     {
         $markets = new Markets();
-
         print_r(json_encode(Markets::all()->union(Products::all())));
     }
 
