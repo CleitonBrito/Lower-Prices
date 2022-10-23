@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Markets;
 use App\Models\Products;
 use Illuminate\Database\Seeder;
 
