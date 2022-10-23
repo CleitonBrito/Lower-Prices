@@ -53613,7 +53613,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nError: Cannot find module '@tailwindcss/forms'\nRequire stack:\n- D:\\xampp\\htdocs\\lower_prices\\tailwind.config.js\n- D:\\xampp\\htdocs\\lower_prices\\node_modules\\tailwindcss\\lib\\index.js\n- D:\\xampp\\htdocs\\lower_prices\\webpack.mix.js\n- D:\\xampp\\htdocs\\lower_prices\\node_modules\\laravel-mix\\setup\\webpack.config.js\n- D:\\xampp\\htdocs\\lower_prices\\node_modules\\webpack-cli\\bin\\utils\\convert-argv.js\n- D:\\xampp\\htdocs\\lower_prices\\node_modules\\webpack-cli\\bin\\cli.js\n- D:\\xampp\\htdocs\\lower_prices\\node_modules\\webpack\\bin\\webpack.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:985:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:833:27)\n    at Module.require (node:internal/modules/cjs/loader:1057:19)\n    at require (D:\\xampp\\htdocs\\lower_prices\\node_modules\\v8-compile-cache\\v8-compile-cache.js:159:20)\n    at Object.<anonymous> (D:\\xampp\\htdocs\\lower_prices\\tailwind.config.js:12:9)\n    at Module._compile (D:\\xampp\\htdocs\\lower_prices\\node_modules\\v8-compile-cache\\v8-compile-cache.js:192:30)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1209:10)\n    at Module.load (node:internal/modules/cjs/loader:1033:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:868:12)\n    at Module.require (node:internal/modules/cjs/loader:1057:19)\n    at require (D:\\xampp\\htdocs\\lower_prices\\node_modules\\v8-compile-cache\\v8-compile-cache.js:159:20)\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\tailwindcss\\lib\\index.js:80:107\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\tailwindcss\\lib\\index.js:88:36\n    at creator (D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss\\lib\\postcss.js:133:35)\n    at Function.get (D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss\\lib\\postcss.js:142:27)\n    at Processor.normalize (D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss\\lib\\processor.js:151:13)\n    at new Processor (D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss\\lib\\processor.js:56:25)\n    at postcss (D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss\\lib\\postcss.js:55:10)\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss-loader\\src\\index.js:140:12\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (D:\\xampp\\htdocs\\lower_prices\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at D:\\xampp\\htdocs\\lower_prices\\node_modules\\postcss-loader\\src\\index.js:208:9\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -53689,25 +53689,12 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
-
-/**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo'
+// import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');
 
