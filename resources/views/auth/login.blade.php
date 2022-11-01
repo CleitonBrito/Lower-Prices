@@ -4,7 +4,7 @@
 <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="w-full max-w-md space-y-8">
     <div>
-      <img class="mx-auto w-1/4" src="{{ asset('components/lower-prices.svg') }}" alt="Your Company">
+      <img class="mx-auto w-1/4" src="{{ asset('components/lower-prices.svg') }}" alt="Lower Prices">
        <h1 class="mt-6 text-center text-4xl font-bold tracking-tight text-greenIndigo-100">Lower Prices</h1>
       <h6 class="mt-6 text-center text-1xl font-bold tracking-tight text-gray-900">Sign in to your account or <a href="#" class="font-medium text-greenIndigo hover:text-indigo-500">Register</a></h6>
     </div>
