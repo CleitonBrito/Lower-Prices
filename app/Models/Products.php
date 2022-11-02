@@ -39,4 +39,8 @@ class Products extends Model
     public function market(){
         return $this->belongsTo(Markets::class, 'fk_market');
     }
+
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }

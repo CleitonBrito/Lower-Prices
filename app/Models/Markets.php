@@ -36,4 +36,8 @@ class Markets extends Model
     public function products(){
         return $this->hasMany(Products::class, 'fk_market');
     }
+
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }
