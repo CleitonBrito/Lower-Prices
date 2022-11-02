@@ -6,7 +6,7 @@
     <div>
       <img class="mx-auto w-1/4" src="{{ asset('components/lower-prices.svg') }}" alt="Lower Prices">
        <h1 class="mt-6 text-center text-4xl font-bold tracking-tight text-greenIndigo-100">Lower Prices</h1>
-      <h6 class="mt-6 text-center text-1xl font-bold tracking-tight text-gray-900">Sign in to your account or <a href="#" class="font-medium text-greenIndigo hover:text-indigo-500">Register</a></h6>
+      <h6 class="mt-6 text-center text-1xl font-bold tracking-tight text-gray-900">Sign in to your account or <a href="{{ route('register') }}" class="font-medium text-greenIndigo hover:text-indigo-500">Register</a></h6>
     </div>
     <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
         @csrf
