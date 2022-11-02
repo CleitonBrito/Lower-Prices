@@ -17,7 +17,7 @@
 </head>
 <body class="h-full">
     <div id='app' class="min-h-full">
-    <nav x-data="{ open : false}" class="bg-green">
+    <nav x-data="{ open : false}" class="sticky top-0 bg-green z-10">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
@@ -160,7 +160,7 @@
     <main>
         <div class="bg-white">
             <div class="mx-auto max-w-2xl py-0 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h2 class="text-2xl tracking-tight text-gray-500">All Markets</h2>
+                <h2 class="top-30 text-2xl tracking-tight text-gray-500">All Markets</h2>
 
                 <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     @for($x = 0; $x < 50; $x++)
