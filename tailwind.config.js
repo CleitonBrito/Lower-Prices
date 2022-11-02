@@ -13,6 +13,9 @@ module.exports = {
                     100: '#10b05d',
                     500: '#026232'
                 },
+                'green' : {
+                    DEFAULT: '#1aab5c'
+                }
             }
         },
     },
