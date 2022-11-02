@@ -23,14 +23,10 @@
         "sass": "^1.20.1",
         "sass-loader": "7.*",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-        "vue": "^2.7.13",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@headlessui/react": "^1.7.3",
-        "@headlessui/vue": "^1.7.3",
-        "@heroicons/react": "^2.0.12",
-        "@heroicons/vue": "^2.0.12",
+        "alpinejs": "^3.10.5",
         "bootstrap": "^5.2.2",
         "tailwindcss": "^1.1.2",
         "vue2-transitions": "^0.3.0"
