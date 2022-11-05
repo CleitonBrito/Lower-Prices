@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Markets;
 use App\Models\Products;
+use App\Models\Prices;
+use App\Models\Images;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,11 +35,13 @@ class Markets extends Model
 
     protected $keyType = 'string';
 
-    public function products(){
-        return $this->hasMany(Products::class, 'fk_market');
-    }
 
     public function image(){
-        return $this->morphOne('App\Models\Image', 'imageable');
+        return $this->morphOne(Images::class, 'imageable');
     }
+
+    public function products(){
+        return $this->belongsToMany(Products::class, 'prices', 'fk_market', 'fk_product')->as('productsTo');;
+    }
+    
 }

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Models\Products;
 use App\Models\Markets;
+use App\Models\Prices;
+use App\Models\Images;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
     protected $fillable = [
         'id_product',
-        'fk_market',
         'name',
         'description',
         'price'
@@ -36,11 +37,16 @@ class Products extends Model
 
     protected $keyType = 'string';
 
-    public function market(){
-        return $this->belongsTo(Markets::class, 'fk_market');
+    public function image(){
+        return $this->morphOne(Images::class, 'imageable');
+    }
+    
+    public function markets(){
+        return $this->belongsToMany(Markets::class)->as('marketsTo');
     }
 
-    public function image(){
-        return $this->morphOne('App\Models\Image', 'imageable');
+    public function prices(){
+        return $this->hasOne(Prices::class, 'fk_product');
     }
+
 }
