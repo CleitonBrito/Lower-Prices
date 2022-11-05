@@ -14,4 +14,5 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/market/{id_market}', 'MarketsController@show');
+Route::get('/market/{id_market}', 'MarketsController@show')->name('market');
+Route::view('/markets/form', 'site.marketFormCreate');
