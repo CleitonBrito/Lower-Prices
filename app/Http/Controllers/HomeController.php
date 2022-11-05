@@ -2,27 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Markets;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    private $markets;
+    public function __construct(Markets $markets){
         $this->middleware('auth');
+        $this->markets = $markets;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('dashboard');
+        $markets = $this->markets::all();
+        return view('dashboard', ['data' => $markets]);
     }
 }
