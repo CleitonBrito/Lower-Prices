@@ -13,12 +13,6 @@ class MarketsSeeder extends Seeder
      */
     public function run()
     {
-        factory(Markets::class)
-            ->create()
-            ->each(function ($market){
-                $market->products()->createMany(
-                    factory(Products::class, 13)->make()->toArray()
-                );
-        });
+        factory(Markets::class, 5)->create();
     }
 }
