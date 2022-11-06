@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\Products;
 use App\Models\Markets;
-use App\Models\Prices;
 use App\Models\Images;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +41,7 @@ class Products extends Model
     }
     
     public function markets(){
-        return $this->belongsToMany(Prices::class)->as('marketsTo');
+        return $this->belongsToMany(Markets::class)->as('marketsTo');
     }
 
 }
