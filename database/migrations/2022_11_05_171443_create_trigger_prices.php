@@ -14,7 +14,6 @@ class CreateTriggerPrices extends Migration
     public function up()
     {
         $trigger = "
-        use bras0877_lower_prices;
         DELIMITER //
         CREATE DEFINER = CURRENT_USER()
         TRIGGER itens_insert
