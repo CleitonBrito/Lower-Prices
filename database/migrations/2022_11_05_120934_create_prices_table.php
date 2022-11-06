@@ -20,15 +20,15 @@ class CreatePricesTable extends Migration
             $table->double('price', 5, 2);
             $table->timestamps();
 
-            $table->foreign('fk_market')
-                ->references('id_market')->on('markets')
-                ->onUpdate('restrict')
-                ->onDelete('cascade');
+            // $table->foreign('fk_market')
+            //     ->references('id_market')->on('markets')
+            //     ->onUpdate('restrict')
+            //     ->onDelete('cascade');
 
-            $table->foreign('fk_product')
-                ->references('id_product')->on('products')
-                ->onUpdate('restrict')
-                ->onDelete('cascade');
+            // $table->foreign('fk_product')
+            //     ->references('id_product')->on('products')
+            //     ->onUpdate('restrict')
+            //     ->onDelete('cascade');
         });
     }
 
