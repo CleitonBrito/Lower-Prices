@@ -14,8 +14,7 @@ class CreateTriggerPrices extends Migration
     public function up()
     {
         $trigger = "
-        DELIMITER //
-        CREATE DEFINER = CURRENT_USER()
+        CREATE
         TRIGGER itens_insert
         AFTER INSERT on prices
         FOR EACH ROW
@@ -28,8 +27,7 @@ class CreateTriggerPrices extends Migration
                 SET MESSAGE_TEXT = 'Not is possible insert more one products to markets prices';
             END IF;
         END;
-        
-        // DELIMITER ;";
+        ";
         \DB::unprepared($trigger);
     }
 
