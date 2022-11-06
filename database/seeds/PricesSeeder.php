@@ -3,6 +3,7 @@
 use App\Models\Markets;
 use App\Models\Products;
 use App\Models\Prices;
+
 use Illuminate\Database\Seeder;
 
 class PricesSeeder extends Seeder

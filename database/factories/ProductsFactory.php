@@ -9,6 +9,6 @@ $factory->define(Products::class, function (Faker $faker) {
     return [
         'id_product' => $faker->uuid,
         'name' => $faker->name,
-        'description' => $faker->realText(10, 1),
+        'description' => $faker->sentence(5),
     ];
 });
