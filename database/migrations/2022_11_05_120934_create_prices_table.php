@@ -25,10 +25,10 @@ class CreatePricesTable extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
 
-            // $table->foreign('fk_product')
-            //     ->references('id_product')->on('products')
-            //     ->onUpdate('restrict')
-            //     ->onDelete('cascade');
+            $table->foreign('fk_product')
+                ->references('id_product')->on('products')
+                ->onUpdate('restrict')
+                ->onDelete('cascade');
         });
     }
 
