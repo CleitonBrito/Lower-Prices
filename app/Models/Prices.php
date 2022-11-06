@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Prices extends Model
 {
-    public function product(){
-        return $this->belongsTo(Products::class, 'fk_product');
+    public function markets(){
+        return $this->belongsTo(Markets::class);
     }
+
+    public function products(){
+        return $this->belongsTo(Products::class);
+    }
+    
 }

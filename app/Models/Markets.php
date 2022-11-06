@@ -41,7 +41,11 @@ class Markets extends Model
     }
 
     public function products(){
-        return $this->belongsToMany(Products::class, 'prices', 'fk_market', 'fk_product')->as('productsTo');;
+        return $this->belongsToMany(Products::class, 'prices', 'fk_market', 'fk_product');
+    }
+
+    public function prices(){
+        return $this->hasManyThrough(Prices::class, Markets::class, 'id_market', 'fk_product', 'id_market');
     }
     
 }

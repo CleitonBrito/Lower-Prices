@@ -42,11 +42,7 @@ class Products extends Model
     }
     
     public function markets(){
-        return $this->belongsToMany(Markets::class)->as('marketsTo');
-    }
-
-    public function prices(){
-        return $this->hasOne(Prices::class, 'fk_product');
+        return $this->belongsToMany(Prices::class)->as('marketsTo');
     }
 
 }
