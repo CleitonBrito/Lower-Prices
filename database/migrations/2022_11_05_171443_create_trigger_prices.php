@@ -14,18 +14,21 @@ class CreateTriggerPrices extends Migration
     public function up()
     {
         $trigger = "
-        CREATE OR REPLACE TRIGGER itens_insert
+        DELIMITER //
+        CREATE TRIGGER itens_insert
         AFTER INSERT on prices
         FOR EACH ROW
         BEGIN
-            declare item int;
+        	DECLARE item int;
             SET item = (SELECT count(*) FROM prices where fk_market = NEW.fk_market and fk_product = NEW.fk_product);
 
             IF item > 1 THEN
                 SIGNAL SQLSTATE '45000'
                 SET MESSAGE_TEXT = 'Not is possible insert more one products to markets prices';
             END IF;
-        END
+        END;
+        
+        // DELIMITER ;
         ";
         \DB::unprepared($trigger);
     }
