@@ -15,7 +15,8 @@ class CreateTriggerPrices extends Migration
     {
         $trigger = "
         DELIMITER //
-        CREATE TRIGGER itens_insert
+        CREATE DEFINER = CURRENT_USER()
+        TRIGGER itens_insert
         AFTER INSERT on prices
         FOR EACH ROW
         BEGIN
