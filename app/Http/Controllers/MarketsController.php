@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Markets;
 use App\Models\Products;
@@ -31,9 +32,9 @@ class MarketsController extends Controller
     public function show($id)
     {
         $market = $this->markets::find($id);
-        $market->products;
-
-        return view('site.market', ['data' => $market]);
+        $products = Products::join('prices', 'products.id_product', '=', 'prices.fk_product')->where('prices.fk_market', '=', $market->id_market)->get();
+        
+        return view('site.market', ['market' => $market, 'products' => $products]);
     }
 
    
