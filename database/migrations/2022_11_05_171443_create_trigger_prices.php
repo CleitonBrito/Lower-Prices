@@ -13,8 +13,7 @@ class CreateTriggerPrices extends Migration
      */
     public function up()
     {
-        $trigger = "
-        DELIMITER //
+        $trigger = "DELIMITER //
         CREATE DEFINER = CURRENT_USER()
         TRIGGER itens_insert
         AFTER INSERT on prices
@@ -29,8 +28,7 @@ class CreateTriggerPrices extends Migration
             END IF;
         END;
         
-        // DELIMITER ;
-        ";
+        // DELIMITER ;";
         \DB::unprepared($trigger);
     }
 
