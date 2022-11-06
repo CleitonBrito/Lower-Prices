@@ -17,7 +17,6 @@ class CreateTriggerPrices extends Migration
         CREATE OR REPLACE TRIGGER itens_insert
         AFTER INSERT on prices
         FOR EACH ROW
-
         BEGIN
             declare item int;
             SET item = (SELECT count(*) FROM prices where fk_market = NEW.fk_market and fk_product = NEW.fk_product);
