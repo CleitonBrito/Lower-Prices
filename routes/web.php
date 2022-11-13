@@ -14,5 +14,20 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/market/{id_market}', 'MarketsController@show')->name('market');
-Route::view('/markets/form', 'site.marketFormCreate');
+
+Route::group(['prefix' => 'market', 'middleware' => 'auth'], function (){
+    Route::get('s/{id_market}', 'MarketsController@show')->name('market');
+
+    Route::get('create', 'MarketsController@create')->name('market_form');
+    Route::post('store', 'MarketsController@store')->name('market_store');
+
+    Route::get('edit/{id_market}', 'MarketsController@edit')->name('market_edit');
+    Route::post('update', 'MarketsController@update')->name('market_update');
+});
+
+Route::group(['prefix' => 'product', 'middleware' => 'auth'], function (){
+    Route::view('/', 'site.products')->name('products');
+
+    Route::view('/create', 'site.forms.productFormCreate')->name('product_form');
+    Route::post('store', 'ProductsController@store')->name('product_store');
+});

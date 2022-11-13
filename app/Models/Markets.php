@@ -31,9 +31,7 @@ class Markets extends Model
      * @var string
      */
     protected $primaryKey = 'id_market';
-
     protected $keyType = 'string';
-
 
     public function image(){
         return $this->morphOne(Images::class, 'imageable');
