@@ -64,7 +64,7 @@
                     @component('../components/productsNotInserted', ['title' => 'Items Not Inserted', 'productsNotInserted' => $productsNotInserted])
                     @endcomponent
                 @endif
-                <div id="itemsNotInsertedCollapse" class="collapse mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
+                <div id="itemsNotInsertedCollapse" class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
                     @foreach($products as $product)
                     <div class="group relative bg-gradientGray-100 pt-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
                         <div class="h-20 w-20 mr-5 rounded-md bg-white group-hover:opacity-75">
