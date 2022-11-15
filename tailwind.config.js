@@ -3,9 +3,11 @@ module.exports = {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-        "./resources/**/*.vue",
     ],
     theme: {
+        maxWidth: {
+            '5em': '5em',
+        },
         extend: {
             colors: {
                 'greenIndigo': {

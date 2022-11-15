@@ -17,7 +17,7 @@
 
     .icons {
         cursor: pointer;
-        z-index: 10;
+        z-index: 2;
         transition: transform 0.2s;
     }
 
@@ -64,15 +64,15 @@
                     @component('../components/productsNotInserted', ['title' => 'Items Not Inserted', 'productsNotInserted' => $productsNotInserted])
                     @endcomponent
                 @endif
-                <div id="itemsNotInsertedCollapse" class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
+                <div id="itemsNotInsertedCollapse" class="collpase show mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
                     @foreach($products as $product)
-                    <div class="group relative bg-gradientGray-100 pt-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
-                        <div class="h-20 w-20 mr-5 rounded-md bg-white group-hover:opacity-75">
+                    <div class="group relative pt-3 px-3 bg-gradientGray-100 rounded-md shadow-xl sm:flex sm:flex-column">
+                        <div class="sm:h-20 sm:w-20 h-36 w-36 mx-auto rounded-md bg-white group-hover:opacity-75">
                             <img class="img-product rounded-md" src="{{ url('storage/'.$product->image->path) }}" class="h-full w-full object-cover object-center h-full w-full">
                         </div>
                         <div class="w-full gap-x-2 flex justify-between">
                             <div class="area-description">
-                                <h3 class="text-lg text-gray-700">
+                                <h3 class="text-lg text-gray-700 md:ml-5 ml-0">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     {{ $product->name }}
                                     <p class="mt-1 text-sm text-gray-500">{{ $product->description }}</p>

@@ -3,7 +3,7 @@
 <style>
     .icons {
         cursor: pointer;
-        z-index: 10;
+        z-index: 2;
         transition: transform 0.2s;
     }
 
