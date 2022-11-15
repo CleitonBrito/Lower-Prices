@@ -8,8 +8,8 @@
         <div class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
             @foreach($productsNotInserted as $product)
                 <div class="group relative bg-gradientGray-100 pt-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
-                        <div class="h-20 w-20 mr-5 rounded-md bg-gray-200 group-hover:opacity-75">
-                        <img class="rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
+                        <div class="w-20 mr-5 rounded-md bg-gray-200 group-hover:opacity-75">
+                            <img class="rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
                         </div>
                         <div class="w-full gap-x-2 flex justify-between">
                             <div class="area-description w-full sm:w-11/12">

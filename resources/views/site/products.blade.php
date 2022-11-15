@@ -41,12 +41,12 @@
                     @if(isset($products))
                         @foreach($products as $product)
                         <div class="group relative bg-gradientGray-100 py-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
-                            <div class="w-20 mr-5 rounded-md bg-gray-200 group-hover:opacity-75">
+                            <div class="w-5/12 aspect-w-1 aspect-h-1 sm:w-20 mx-auto mx-sm-0 rounded-md bg-gray-200 group-hover:opacity-75">
                                 <img class="rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
                             </div>
                             <div class="flex justify-between">
                                 <div class="area-description">
-                                    <h3 class="text-lg text-gray-700">
+                                    <h3 class="pl-0 sm:pl-4 text-lg text-gray-700">
                                         <span aria-hidden="true" class="absolute inset-0"></span>
                                         {{ $product->name }}
                                         <p class="mt-1 text-sm text-gray-500">{{ $product->description }}</p>
