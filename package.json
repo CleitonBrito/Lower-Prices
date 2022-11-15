@@ -26,8 +26,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "alpinejs": "^3.10.5",
-        "bootstrap": "^5.2.2",
         "tailwindcss": "^1.1.2"
     }
 }

@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 <style>
+    .modalDelete {
+        z-index: 3;
+    }
+
     .icons {
-        cursor: pointer;
-        z-index: 2;
+        z-index: 3;
         transition: transform 0.2s;
     }
 
@@ -17,12 +20,13 @@
 </style>
 
 @section('content-main')
-
         <header class="bg-white shadow">
             <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
             </div>
         </header>
+        @component('components/Modal')
+        @endcomponent
         <main class="pb-10">
             <div class="bg-white">
                 <div class="mx-auto max-w-2xl py-0 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -63,7 +67,9 @@
                                     <a class="icons" href="{{ route('market_edit', $market->id_market) }}">
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" stroke-width="2" d="M14,4 L20,10 L14,4 Z M22.2942268,5.29422684 C22.6840146,5.68401459 22.6812861,6.3187139 22.2864907,6.71350932 L9,20 L2,22 L4,15 L17.2864907,1.71350932 C17.680551,1.319449 18.3127724,1.31277239 18.7057732,1.70577316 L22.2942268,5.29422684 Z M3,19 L5,21 M7,17 L15,9"></path></svg>
                                     </a>
-                                    <svg class="icons" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"></path></svg>
+                                    <button type="button" data-market={{ $market->id_market }} class="icons" data-bs-toggle="modal" data-bs-target="#modalDelete">
+                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"></path></svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
