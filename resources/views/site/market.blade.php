@@ -68,7 +68,7 @@
                     @foreach($products as $product)
                     <div class="group relative bg-gradientGray-100 pt-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
                         <div class="h-20 w-20 mr-5 rounded-md bg-white group-hover:opacity-75">
-                            <img class="img-product rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
+                            <img class="img-product rounded-md" src="{{ url('storage/'.$product->image->path) }}" class="h-full w-full object-cover object-center h-full w-full">
                         </div>
                         <div class="w-full gap-x-2 flex justify-between">
                             <div class="area-description">
