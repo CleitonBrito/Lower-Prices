@@ -21,7 +21,7 @@
                 @csrf
                 <input type="hidden" name="id_market" value="{{ $market->id_market }}">
                 @if(isset($market->image->path))
-                    <img class="rounded-lg max-h-45 w-auto p-0 mx-auto" src="{{ url('storage/'.$market->image->path) }}" alt="">
+                    <img class="rounded-lg max-h-full sm:max-h-48 w-auto p-0 mx-auto" src="{{ url('storage/'.$market->image->path) }}" alt="">
                 @endif
                 <input type="file" class="form-control" id="img_market" name="img_market" accept="image/png, image/jpeg, image/bmp">
                 <div class="col-md-12 col-12">

@@ -41,7 +41,7 @@
                     @if(isset($products))
                         @foreach($products as $product)
                         <div class="group relative bg-gradientGray-100 py-3 px-3 rounded-md shadow-xl sm:flex sm:flex-column">
-                            <div class="h-20 w-20 mr-5 rounded-md bg-gray-200 group-hover:opacity-75">
+                            <div class="w-20 mr-5 rounded-md bg-gray-200 group-hover:opacity-75">
                                 <img class="rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
                             </div>
                             <div class="flex justify-between">
