@@ -12,6 +12,6 @@ $factory->define(Prices::class, function (Faker $faker) {
         'id_prices' => $faker->uuid,
         'fk_market' => Markets::all()->random()->id_market,
         'fk_product' => Products::all()->random()->id_product,
-        'price' => $faker->randomFloat(2, 0, 100)
+        'price' => $faker->randomFloat(2, 0, 6)
     ];
 });

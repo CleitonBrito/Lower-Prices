@@ -10,6 +10,10 @@
     .icons:hover {
         transform: scale(1.3);
     }
+
+    .bg-gradientGray-100 {
+        background: linear-gradient(0deg, #00000010, transparent);
+    }
 </style>
 
 @section('content-main')
@@ -22,10 +26,6 @@
         <main class="pb-10">
             <div class="bg-white">
                 <div class="mx-auto max-w-2xl py-0 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
-                    @php
-                        $allMarkets = rand(1, 50);
-                    @endphp
-
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3">
                         <h2 class="top-30 text-2xl tracking-tight text-gray-500">All Markets <sup>{{ "(". count($data). ")" }}</sup></h2>
                         <a href="{{ route('market_form') }}" class="lg:w-1/2 group relative flex w-full justify-center rounded-md border border-transparent bg-greenIndigo-200 py-2 px-4 text-sm font-medium text-white hover:bg-greenIndigo-500 focus:outline-none focus:ring-2 focus:greenIndigo-500 focus:ring-offset-2">
@@ -40,19 +40,23 @@
                     </div>
                     <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                         @foreach($data as $market)
-                        <div class="group relative pt-1 px-3 rounded-md shadow-xl">
+                        <div class="group relative pt-1 px-3 rounded-md shadow-xl bg-gradientGray-100">
                             <div class="min-h-30 max-h-60 flex flex-column aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                                <img src="{{ url('storage/'.$market->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                                @if(isset($market->image->path))
+                                    <img src="{{ url('storage/'.$market->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                                @else
+                                    <h3 class="d-flex justify-content-center align-items-center w-full h-full m-0 text-center text-gray-500">{{ $market->name }}</h3>
+                                @endif
                             </div>
                             <div class="mt-4 gap-x-2 flex justify-between">
-                                <div>
+                                <div class="area-description">
                                     <h3 class="text-lg text-greenIndigo">
-                                    <a href="{{ route('market', $market->id_market) }}">
-                                        <span aria-hidden="true" class="absolute inset-0 text-green"></span>
-                                        {{ $market->name }}
-                                    </a>
-                                    <p class="mt-1 mb-0 text-sm text-gray-500">{{ $market->city ." - ". $market->UF }}</p>
-                                    <p class="text-sm text-gray-400">{{ $market->address }}</p>
+                                        <a href="{{ route('market', $market->id_market) }}">
+                                            <span aria-hidden="true" class="absolute inset-0 text-green"></span>
+                                            {{ $market->name }}
+                                        </a>
+                                        <p class="mt-1 mb-0 text-sm text-gray-500">{{ $market->city ." - ". $market->UF }}</p>
+                                        <p class="text-sm text-gray-400">{{ $market->address }}</p>
                                     </h3>
                                 </div>
                                 <div class="d-flex gap-2 align-items-center">

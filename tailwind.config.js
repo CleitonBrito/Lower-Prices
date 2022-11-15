@@ -18,7 +18,12 @@ module.exports = {
                 },
                 'green' : {
                     DEFAULT: '#1aab5c'
-                }
+                },
+                'purple': {
+                    DEFAULT: '#9f0cd5',
+                    200: '#850eb1',
+                    300: '#660f87',
+                },
             }
         },
     },

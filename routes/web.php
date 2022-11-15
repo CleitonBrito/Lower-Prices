@@ -26,7 +26,7 @@ Route::group(['prefix' => 'market', 'middleware' => 'auth'], function (){
 });
 
 Route::group(['prefix' => 'product', 'middleware' => 'auth'], function (){
-    Route::view('/', 'site.products')->name('products');
+    Route::get('/', 'ProductsController@index')->name('products');
 
     Route::view('/create', 'site.forms.productFormCreate')->name('product_form');
     Route::post('store', 'ProductsController@store')->name('product_store');

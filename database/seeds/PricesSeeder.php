@@ -18,9 +18,7 @@ class PricesSeeder extends Seeder
         $markets = Markets::all();
 
         foreach($markets as $market){
-            if (!empty($market->products)){
-                factory(Prices::class, 30)->create();
-            }
+            factory(Prices::class, 2)->create();
         }
     }
 }

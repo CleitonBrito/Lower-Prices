@@ -1,12 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 
-use App\Models\Produtos;
+use App\Models\Products;
+use App\Models\Images;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    private $product;
+
+    public function __construct(Products $product){
+        $this->product = $product;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,17 +21,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $products = $this->product::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('site.products', ['products' => $products]);
     }
 
     /**
@@ -35,7 +34,41 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'description' => 'required|string|max:100',
+            ],
+            [
+                'name.required' => 'Name is required!',
+                'name.max' => 'Name too long much. Max is :max caracters',
+                'description.required' => 'Description is required!',
+                'description.max' => 'Description too long much. Max is :max caracters'
+            ]
+        );
+
+        try{
+            $id_product = (string)Str::uuid();
+            $this->product::create([
+                'id_product' => $id_product,
+                'name' => $request->name,
+                'description' => $request->description
+            ]);
+
+            $filePath = $request->file('img_product')->store('/products');
+            $product = Products::find($id_product);
+
+            $product->image()->save(
+                new Images([
+                    'imageable_id' => $id_product,
+                    'path' => $filePath
+                ])
+            );
+            
+
+            return redirect()->back()->with('success', 'Product stored with success!');
+        }catch(\Exception $e){
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**

@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 
 use App\Models\Markets;
 use App\Models\Products;
+use App\Models\Prices;
 use App\Models\Images;
 use Illuminate\Http\Request;
 
@@ -74,10 +75,17 @@ class MarketsController extends Controller
 
     public function show($id)
     {
-        $market = $this->markets::find($id);
-        $products = Products::join('prices', 'products.id_product', '=', 'prices.fk_product')->where('prices.fk_market', '=', $market->id_market)->get();
-        
-        return view('site.market', ['market' => $market, 'products' => $products]);
+        try{
+            $market = $this->markets::find($id);
+            $products = Products::join('prices', 'products.id_product', '=', 'prices.fk_product')->where('prices.fk_market', '=', $market->id_market)->get();
+            $onlyIdProducts = array_column(json_decode(json_encode($products), true), 'id_product');
+            $productsNotInserted = Products::whereNotIn('id_product', $onlyIdProducts)
+            ->get();
+            
+            return view('site.market', ['market' => $market, 'products' => $products, 'productsNotInserted' => $productsNotInserted]);
+        }catch(\Exception $e){
+            abort(404);
+        }
     }
 
    
@@ -102,7 +110,13 @@ class MarketsController extends Controller
         ];
 
         try{
-            if(file_exists($request->img_market)){
+            // Se tiver path, é pq tem já. Só atualiza
+            // Se não tiver path, cadastra
+
+            // Se não tiver file e tiver path, atualiza
+            // Se não tiver file e não tiver path, FAZ NADA
+
+            if(file_exists($request->img_market) && isset($market->image->path)){
                 unlink(public_path('\\storage\\').$market->image->path);
                 $image_market = Images::find($market->image->id);
                 $new_image_path = $request->file('img_market')->store('/markets');
@@ -110,6 +124,15 @@ class MarketsController extends Controller
                 $image_market->update([
                     'path' => $new_image_path
                 ]);
+
+            }else if(!isset($market->image->path) && file_exists($request->img_market)){
+                $filePath = $request->file('img_market')->store('/markets');
+                $market->image()->save(
+                    new Images([
+                        'imageable_id' => $request->id_market,
+                        'path' => $filePath
+                    ])
+                );
             }
 
             $market->update($data);

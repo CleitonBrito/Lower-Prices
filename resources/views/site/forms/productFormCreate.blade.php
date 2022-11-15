@@ -13,7 +13,7 @@
                 </div>
             @elseif (session('success'))
                 <div class="alert alert-success">
-                    <span>{{ session('success') }}</span> Click and view in <a style="text-decoration: underline!important" href="{{ route('home') }}">products</a>
+                    <span>{{ session('success') }}</span> Click and view in <a style="text-decoration: underline!important" href="{{ route('products') }}">products</a>
                 </div>
             @endif
             <h1 class="text-center mt-2 mb-5">Create Product</h1>
@@ -34,8 +34,8 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label for="img_market" class="form-label mt-2">Image</label>
-                    <input type="file" class="form-control" id="img_market" name="img_market" value="{{ old('img_market') }}" accept="image/png, image/jpeg, image/bmp" required>
+                    <label for="img_product" class="form-label mt-2">Image</label>
+                    <input type="file" class="form-control" id="img_product" name="img_product" value="{{ old('img_product') }}" accept="image/png, image/jpeg, image/bmp" required>
                     <div class="invalid-feedback">
                     Please provide a valid image file.
                     </div>
