@@ -31,3 +31,7 @@ Route::group(['prefix' => 'product', 'middleware' => 'auth'], function (){
     Route::view('/create', 'site.forms.productFormCreate')->name('product_form');
     Route::post('store', 'ProductsController@store')->name('product_store');
 });
+
+Route::get('envio-email', function(){
+    return new \App\Mail\WelcomeMail;
+});
