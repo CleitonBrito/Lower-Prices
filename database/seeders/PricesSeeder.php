@@ -1,10 +1,12 @@
 <?php
 
+namespace Database\Seeders;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
 use App\Models\Markets;
 use App\Models\Products;
 use App\Models\Prices;
-
-use Illuminate\Database\Seeder;
 
 class PricesSeeder extends Seeder
 {

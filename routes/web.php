@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\WelcomeMail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +35,11 @@ Route::group(['prefix' => 'product', 'middleware' => 'auth'], function (){
 });
 
 Route::get('envio-email', function(){
-    return new \App\Mail\WelcomeMail;
+    $user = new \stdClass();
+
+    $user->name = "Cleiton Brito";
+    $user->email = "cleytonbritto3003@gmail.com";
+
+    // return new \App\Mail\WelcomeMail($user);
+    WelcomeMail::dispatch($user)->delay(now()->addSeconds(15));
 });
