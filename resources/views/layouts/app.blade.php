@@ -50,7 +50,6 @@
                         <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('home') }}" class="<?php echo (Route::currentRouteName() == "home") ? 'bg-gray-900' : ''; ?> text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
-                        <a href="#" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/market") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Markets</a>
                         <a href="{{ route('products') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/product") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
                         </div>
                     </div>
@@ -132,7 +131,6 @@
             <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a href="{{ route('home') }}" class="<?php echo (Route::currentRouteName() == "home") ? 'bg-gray-900' : ''; ?> text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-                <a href="#" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/market") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Markets</a>
                 <a href="{{ route('products') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/product") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Products</a>
             </div>
             <div class="border-t border-gray-700 pt-4 pb-3">

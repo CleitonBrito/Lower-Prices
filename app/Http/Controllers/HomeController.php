@@ -15,6 +15,6 @@ class HomeController extends Controller
     public function index()
     {
         $markets = $this->markets::all();
-        return view('dashboard', ['data' => $markets]);
+        return view('site.dashboard', ['data' => $markets]);
     }
 }
