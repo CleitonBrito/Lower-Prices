@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     private $markets;
     public function __construct(Markets $markets){
-        $this->middleware('auth');
         $this->markets = $markets;
     }
 

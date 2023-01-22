@@ -13,11 +13,9 @@ use App\Jobs\WelcomeMail;
 |
 */
 
-Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'market', 'middleware' => 'auth'], function (){
+Route::group(['prefix' => 'market'], function (){
     Route::get('s/{id_market}', 'MarketsController@show')->name('market');
 
     Route::get('create', 'MarketsController@create')->name('market_form');
@@ -27,7 +25,7 @@ Route::group(['prefix' => 'market', 'middleware' => 'auth'], function (){
     Route::post('update', 'MarketsController@update')->name('market_update');
 });
 
-Route::group(['prefix' => 'product', 'middleware' => 'auth'], function (){
+Route::group(['prefix' => 'product'], function (){
     Route::get('/', 'ProductsController@index')->name('products');
 
     Route::view('/create', 'site.forms.productFormCreate')->name('product_form');

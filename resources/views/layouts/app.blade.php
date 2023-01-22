@@ -85,12 +85,12 @@
                         x-transition:leave-end="transform opacity-0 scale-95"
                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <p class="block px-4 py-2 text-sm text-gray-700 font-bold"><span class="font-light">Hello, </span> @php echo Auth::user()->name @endphp</p>
+                        <p class="block px-4 py-2 text-sm text-gray-700 font-bold"><span class="font-light">Hello, </span> User</p>
                         <hr>
-                        <form action="{{ route('logout') }}" method="POST">
+                        {{-- <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign Out</button>
-                        </form>
+                        </form> --}}
                     </div>
                     </div>
                 </div>
@@ -141,15 +141,15 @@
                     <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                 </div>
                 <div class="ml-3">
-                    <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
-                    <div class="text-sm font-medium leading-none text-greenIndigo-500">{{ Auth::user()->email }}</div>
+                    <div class="text-base font-medium leading-none text-white">User</div>
+                    <div class="text-sm font-medium leading-none text-greenIndigo-500">user@mail.com</div>
                 </div>
                 </div>
                 <div class="mt-3 space-y-1 px-2">
-                <form action="{{ route('logout') }}" method="POST">
+                {{-- <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="block rounded-md px-3 py-2 text-base font-medium text-gray-100 hover:bg-gray-700 hover:text-white">Sign out</button>
-                </form>
+                </form> --}}
                 </div>
             </div>
         </div>
