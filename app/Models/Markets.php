@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Markets;
 use App\Models\Products;
 use App\Models\Images;
 

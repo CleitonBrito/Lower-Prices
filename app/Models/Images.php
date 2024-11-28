@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Images extends Model
 {
     protected $fillable = [
-        'imageable_id',
-        'path'
+        'path',
+        'imageable_id'
     ];
 
     protected $keyType = 'string';

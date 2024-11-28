@@ -56,7 +56,12 @@ class MarketsController extends Controller
                 'address' => $request->address
             ]);
 
-            $filePath = $request->file('img_market')->store('/markets');
+            if(!empty($request->file('img_market'))){
+                $filePath = $request->file('img_market')->store('/markets');
+            }else{
+                $filePath = NULL;
+            }
+
             $market = Markets::find($id_market);
 
             $market->image()->save(

@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Products;
-use App\Models\Markets;
-use App\Models\Images;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model

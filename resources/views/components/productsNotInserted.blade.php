@@ -1,3 +1,7 @@
+@push('scripts')
+    <script src="{{ asset('js/script.js')}}"></script>
+@endpush
+
 <div class="collapse my-3 pb-5" id="itemsNotInsertedCollapse">
     <div class="card card-body py-4 px-3">
         <div class="gap-x-5 flex flex-col sm:flex-row">

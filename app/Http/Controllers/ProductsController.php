@@ -22,7 +22,6 @@ class ProductsController extends Controller
     public function index()
     {
         $products = $this->product::all();
-
         return view('site.products', ['products' => $products]);
     }
 
@@ -46,25 +45,25 @@ class ProductsController extends Controller
             ]
         );
 
+
         try{
-            $id_product = (string)Str::uuid();
-            $this->product::create([
+            $id_product = Str::uuid();
+            $product = $this->product::create([
                 'id_product' => $id_product,
-                'name' => $request->name,
-                'description' => $request->description
+                'name' => $validated['name'],
+                'description' => $validated['description']
             ]);
 
+
+            $product = $this->product::find($id_product);
             $filePath = $request->file('img_product')->store('/products');
-            $product = Products::find($id_product);
 
             $product->image()->save(
                 new Images([
-                    'imageable_id' => $id_product,
-                    'path' => $filePath
+                    'path' => $filePath,
                 ])
             );
-            
-
+       
             return redirect()->back()->with('success', 'Product stored with success!');
         }catch(\Exception $e){
             return redirect()->back()->with('error', $e->getMessage());
@@ -77,10 +76,10 @@ class ProductsController extends Controller
      * @param  \App\Models\Produtos  $produtos
      * @return \Illuminate\Http\Response
      */
-    public function show(Produtos $produtos)
-    {
-        //
-    }
+    // public function show(Produtos $produtos)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -88,10 +87,10 @@ class ProductsController extends Controller
      * @param  \App\Models\Produtos  $produtos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produtos $produtos)
-    {
-        //
-    }
+    // public function edit(Produtos $produtos)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -100,10 +99,10 @@ class ProductsController extends Controller
      * @param  \App\Models\Produtos  $produtos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produtos $produtos)
-    {
-        //
-    }
+    // public function update(Request $request, Produtos $produtos)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -111,8 +110,8 @@ class ProductsController extends Controller
      * @param  \App\Models\Produtos  $produtos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produtos $produtos)
-    {
-        //
-    }
+    // public function destroy(Produtos $produtos)
+    // {
+    //     //
+    // }
 }
