@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Prices extends Model
 {
+    protected $fillable = [
+        'id_prices',
+        'fk_market',
+        'fk_product',
+        'price'
+    ];
+
     public function markets(){
         return $this->belongsTo(Markets::class);
     }

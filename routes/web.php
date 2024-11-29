@@ -1,6 +1,7 @@
 <?php
 
 use App\Jobs\WelcomeMail;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::group(['prefix' => 'product'], function (){
 
     Route::view('/create', 'site.forms.productFormCreate')->name('product_form');
     Route::post('store', 'ProductsController@store')->name('product_store');
+});
+
+Route::group(['prefix' => 'prices'], function () {
+    Route::post('store', 'PricesController@store')->name('product_store');
 });
 
 Route::get('envio-email', function(){

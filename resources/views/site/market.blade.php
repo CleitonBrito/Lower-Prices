@@ -60,6 +60,8 @@
                             Add Product
                         </button>
                 </div>
+                <div id="all-products" class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
+                </div>
                 @if($productsNotInserted)
                     @component('../components/productsNotInserted', ['title' => 'Items Not Inserted', 'productsNotInserted' => $productsNotInserted])
                     @endcomponent

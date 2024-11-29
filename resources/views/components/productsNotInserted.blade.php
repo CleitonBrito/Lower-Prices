@@ -11,7 +11,7 @@
         <span class="mt-2 text-gray-500">To insert a new item just type the value and confirm in the top button "Confirm".</span>
         <div class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
             @foreach($productsNotInserted as $product)
-                <div class="group relative pt-3 px-3 bg-gradientGray-100 rounded-md shadow-xl sm:flex sm:flex-column">
+                <div data-id="{{ $product->id_product }}" class="group relative pt-3 px-3 bg-gradientGray-100 rounded-md shadow-xl sm:flex sm:flex-column">
                         <div class="sm:h-20 sm:w-20 h-36 w-36 mx-auto rounded-md bg-white group-hover:opacity-75">
                             <img class="img-product rounded-md" src="{{ url('storage/'.$product->image->path) }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center h-full w-full">
                         </div>
