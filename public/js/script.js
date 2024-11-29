@@ -1,5 +1,9 @@
 window.onload = function() {
     $('#confirm-button').on('click', ()=> {
-        console.log($("input[type='number']"));
+        $("input[type='number']").map((index, item)=> {
+            if($(item).val() != ""){
+                console.log($(item).val());
+            }
+        });
     });
 }
