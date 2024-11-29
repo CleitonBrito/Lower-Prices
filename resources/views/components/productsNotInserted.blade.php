@@ -6,7 +6,7 @@
     <div class="card card-body py-4 px-3">
         <div class="gap-x-5 flex flex-col sm:flex-row">
             <h2 class="my-auto text-greenIndigo-100">{{ $title." (". count($productsNotInserted) .")" }}</h2>
-            <button class="max-h-10 sm:mx-auto mt-md-0 mt-2 mx-0 lg:w-1/4 sm:w-1/2 group relative flex w-full justify-center rounded-md border border-transparent bg-greenIndigo-200 py-2 px-4 text-sm font-medium text-white hover:bg-greenIndigo-500 focus:outline-none focus:ring-2 focus:greenIndigo-500 focus:ring-offset-2">Confirm</button>
+            <button id="confirm-button" class="max-h-10 sm:mx-auto mt-md-0 mt-2 mx-0 lg:w-1/4 sm:w-1/2 group relative flex w-full justify-center rounded-md border border-transparent bg-greenIndigo-200 py-2 px-4 text-sm font-medium text-white hover:bg-greenIndigo-500 focus:outline-none focus:ring-2 focus:greenIndigo-500 focus:ring-offset-2">Confirm</button>
         </div>
         <span class="mt-2 text-gray-500">To insert a new item just type the value and confirm in the top button "Confirm".</span>
         <div class="mt-6 grid grid-cols-1 gap-y-5 gap-x-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-x-8">
