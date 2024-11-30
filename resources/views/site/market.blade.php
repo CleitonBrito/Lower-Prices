@@ -51,7 +51,7 @@
         <div class="bg-white">
             <div class="mx-auto max-w-2xl py-0 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3">
-                    <h2 class="lg:w-1/2 text-2xl tracking-tight text-gray-500">All Products <sup>{{ "(". count($products). ")" }}</sup></h2>
+                    <h2 class="lg:w-1/2 text-2xl tracking-tight text-gray-500">All Products <sup id="all-items-market">{{ count($products) }}</sup></h2>
                         <button type="button" data-bs-toggle="collapse" data-bs-target="#itemsNotInsertedCollapse" aria-expanded="false" aria-controls="itemsNotInsertedCollapse" class="lg:w-1/2 group relative flex w-full justify-center rounded-md border border-transparent bg-purple py-2 px-4 text-sm font-medium text-white hover:bg-purple-300 focus:outline-none focus:ring-2 focus:greenIndigo-500 focus:ring-offset-2">
                             <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-200 opacity-75"></span>

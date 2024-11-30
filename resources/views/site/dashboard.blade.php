@@ -45,16 +45,16 @@
                     <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                         @foreach($data as $market)
                         <div class="group relative pt-1 px-3 rounded-md shadow-xl bg-gradientGray-100">
-                            <div class="min-h-30 max-h-48 flex flex-column aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                            <div class="min-h-30 max-h-48 flex flex-column aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 sm:h-80">
                                 @if(isset($market->image->path))
                                     <img src="{{ url('storage/'.$market->image->path) }}" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
                                 @else
-                                    <h3 class="d-flex justify-content-center align-items-center w-full h-full m-0 text-center text-gray-500">{{ $market->name }}</h3>
+                                    <h3 class="d-none d-sm-flex aspect-w-1 justify-content-center align-items-center w-full h-full m-0 text-center text-gray-500">{{ $market->name }}</h3>
                                 @endif
                             </div>
                             <div class="mt-4 gap-x-2 flex justify-between">
                                 <div class="area-description">
-                                    <h3 class="text-lg text-greenIndigo">
+                                    <h3 class="sm:text-lg text-2xl  text-greenIndigo">
                                         <a href="{{ route('market', $market->id_market) }}">
                                             <span aria-hidden="true" class="absolute inset-0 text-green"></span>
                                             {{ $market->name }}
