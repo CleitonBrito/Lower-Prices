@@ -48,10 +48,11 @@
                         </div>
                     </a>
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="ml-10 flex items-baseline gap-x-2">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="{{ route('home') }}" class="<?php echo (Route::currentRouteName() == "home") ? 'bg-gray-900' : ''; ?> text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
+                        <a href="{{ route('home') }}" class="<?php echo (Route::currentRouteName() == "home") ? 'bg-gray-900' : ''; ?> text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Markets</a>
                         <a href="{{ route('products') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/product") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                        <a href="{{ route('compare') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/compare") ? 'bg-gray-700' : ''; ?> text-white border border-danger hover:bg-transparent bg-red-700 hover:text-red-300 px-3 py-2 ml-10 rounded-md text-sm font-medium">Compare</a>
                         </div>
                     </div>
                 </div>

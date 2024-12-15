@@ -37,6 +37,10 @@ Route::group(['prefix' => 'prices'], function () {
     Route::post('store', 'PricesController@store')->name('product_store');
 });
 
+Route::group(['prefix' => 'compare'], function () {
+    Route::get('/', 'CompareController@index')->name('compare');
+});
+
 Route::get('envio-email', function(){
     $user = new \stdClass();
 
