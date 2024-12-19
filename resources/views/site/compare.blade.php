@@ -7,7 +7,7 @@
         </div>
     </header>
     <main class="d-flex justify-center">
-        <div class="d-flex flex-col col-8 justify-content-center items-center py-10">
+        <div class="d-flex flex-col col-11 col-sm-8 justify-content-center items-center py-10">
             @if(isset($prices))
                 @foreach($prices as $price)
                     <h2 class="mb-4">{{ $price['market_data']['name'] }}</h2>

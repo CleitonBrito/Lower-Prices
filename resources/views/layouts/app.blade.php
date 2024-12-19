@@ -52,7 +52,9 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('home') }}" class="<?php echo (Route::currentRouteName() == "home") ? 'bg-gray-900' : ''; ?> text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Markets</a>
                         <a href="{{ route('products') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/product") ? 'bg-gray-900' : ''; ?> text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
-                        <a href="{{ route('compare') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/compare") ? 'bg-gray-700' : ''; ?> text-white border border-danger hover:bg-transparent bg-red-700 hover:text-red-300 px-3 py-2 ml-10 rounded-md text-sm font-medium">Compare</a>
+                        @if(URL::current() != url('market/list'))
+                            <a href="{{ url('market/list') }}" class="<?php echo (Route::getCurrentRoute()->getPrefix() == "/compare") ? 'bg-gray-700' : ''; ?> text-white border border-danger hover:bg-transparent bg-red-700 hover:text-red-300 px-3 py-2 ml-10 rounded-md text-sm font-medium">Compare</a>
+                        @endif
                         </div>
                     </div>
                 </div>
