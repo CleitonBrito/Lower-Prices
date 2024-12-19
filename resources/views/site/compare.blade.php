@@ -8,31 +8,35 @@
     </header>
     <main class="d-flex justify-center">
         <div class="d-flex flex-col col-8 justify-content-center items-center py-10">
-            @foreach($prices as $price)
-                <h2 class="mb-4">{{ $price['market_data']['name'] }}</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Picture</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @isset($price['products'])
-                            @foreach($price['products'] as $key => $product)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    <td><img class="w-10 h-10 aspect-w-1 aspect-h-1" src="{{ url('storage/'.$product->path) }}" /> </td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>R$ {{ number_format($product->price, 2, ',', '.') }}</td>
-                                </tr>
-                            @endforeach
-                        @endisset
-                    </tbody>
-                </table>
-            @endforeach
+            @if(isset($prices))
+                @foreach($prices as $price)
+                    <h2 class="mb-4">{{ $price['market_data']['name'] }}</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Picture</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @isset($price['products'])
+                                @foreach($price['products'] as $key => $product)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td><img class="w-10 h-10 aspect-w-1 aspect-h-1" src="{{ url('storage/'.$product->path) }}" /> </td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>R$ {{ number_format($product->price, 2, ',', '.') }}</td>
+                                    </tr>
+                                @endforeach
+                            @endisset
+                        </tbody>
+                    </table>
+                @endforeach
+            @else
+                <span class="text-2xl">Please, <a class="text-red-500" href="{{ url('market/list') }}">click here</a> and select more than one market to compare prices.</span>
+            @endif
         </div>
     </main>
 @endsection

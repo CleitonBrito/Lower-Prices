@@ -21,6 +21,11 @@ class MarketsController extends Controller
         return view('site.market');
     }
 
+    public function list(){
+        $markets = $this->markets::with('image')->get();
+        return view('site.marketsToCompare', ['markets' => $markets]);
+    }
+
     public function create(Request $request)
     {
         return view('site.forms.marketFormCreate');

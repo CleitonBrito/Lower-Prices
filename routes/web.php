@@ -24,6 +24,8 @@ Route::group(['prefix' => 'market'], function (){
 
     Route::get('edit/{id_market}', 'MarketsController@edit')->name('market_edit');
     Route::post('update', 'MarketsController@update')->name('market_update');
+
+    Route::get('list', 'MarketsController@list');
 });
 
 Route::group(['prefix' => 'product'], function (){
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'prices'], function () {
 });
 
 Route::group(['prefix' => 'compare'], function () {
-    Route::get('/', 'CompareController@index')->name('compare');
+    Route::post('/', 'CompareController@index')->name('compare');
 });
 
 Route::get('envio-email', function(){
