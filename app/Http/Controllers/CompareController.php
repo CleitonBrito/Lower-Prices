@@ -32,6 +32,7 @@ class CompareController extends Controller
                 $price = Prices::select('*')
                     ->join('products', 'products.id_product', '=', 'prices.fk_product')
                     ->join('images', 'products.id_product', '=', 'images.imageable_id')
+                    ->whereIn('prices.fk_market', $markets)
                     ->where('prices.fk_product', $product->id_product)
                     ->orderBy('prices.price', 'asc')
                     ->first();
