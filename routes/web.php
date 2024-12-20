@@ -33,6 +33,8 @@ Route::group(['prefix' => 'product'], function (){
 
     Route::view('/create', 'site.forms.productFormCreate')->name('product_form');
     Route::post('store', 'ProductsController@store')->name('product_store');
+
+    Route::post('/getAllInMarkets', 'ProductsController@getProductInMarkets');
 });
 
 Route::group(['prefix' => 'prices'], function () {

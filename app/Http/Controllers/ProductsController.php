@@ -25,6 +25,11 @@ class ProductsController extends Controller
         return view('site.products', ['products' => $products]);
     }
 
+    public function getProductInMarkets(Request $request){
+        $products = $this->product::select('id_product')->where('name', 'like', $request->name.'%')->get();
+        return $products;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

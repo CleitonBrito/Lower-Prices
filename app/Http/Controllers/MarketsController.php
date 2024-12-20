@@ -23,7 +23,8 @@ class MarketsController extends Controller
 
     public function list(){
         $markets = $this->markets::with('image')->get();
-        return view('site.marketsToCompare', ['markets' => $markets]);
+        $products = Products::all();
+        return view('site.marketsToCompare', ['markets' => $markets, 'products' => $products]);
     }
 
     public function create(Request $request)
