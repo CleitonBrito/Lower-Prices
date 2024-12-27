@@ -58,32 +58,61 @@
 
 @push('scripts')
     <script type="application/javascript">
-        $(document).ready(function(){
-            $("#searchProducts").on('input', function(){
-                $.ajax({
+        var markets_checked, elemHTML, products_ids, showded = [];
+        const searchProducts = (name) => {
+            $.ajax({
                     headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     method: "POST",
                     url : '/product/getAllInMarkets',
-                    data : { name: this.value }
+                    data : { name: name, markets : markets_checked }
                 })
                 .done(function(el){
-                    if($("#searchProducts").val() == ""){
-                        $('[data-prod-id]*[style="display: none!important"]').each(function(key, el){
-                            $(el).attr('style', 'display: flex!important');
-                        });
-                    }else{
-                        $.each(el, function(key, elem){
-                            $.each($('[data-prod-id]'), function(key2, el2){
-                                $(el2).attr("style", "display: flex");
-                                if($(el2).data('prod-id') != $(elem)[0].id_product)
-                                    $(el2).attr("style", "display: none!important");
-                            });
-                        
-                        });
-                    }
+                    elemHTML = $('[data-prod-id]').toArray();
+                    products_ids = $('[data-prod-id]').toArray()['id_product'];
+
+                    $.each(elemHTML, function(key, elem){
+                        $(this).attr('style', 'display: none!important');
+                    });
+
+                    $.each(el, function(key, elem){
+                        if(jQuery.inArray(elem, products_ids)){
+                            $(elemHTML[key]).attr('style', 'display: flex!important');
+                            showded.push($(elemHTML[key]).toArray());
+                            $(elemHTML[key]).children("input").removeAttr('disabled');
+                        }
+                    });
                 });
+        }
+
+        const showdedFunc = (el) => {
+            
+        }
+
+        $(document).ready(function(){
+            $("#searchProducts").attr('disabled', 'disabled');
+            $('input[name*="markets_input"]').on('change', function(el){
+                markets_checked = [];
+                    $('input[name*="markets_input"]').each(function(el){
+                        if(this.checked)
+                            markets_checked.push($(this).attr('value'));
+                    });
+                if(markets_checked.length > 0){
+                    $("#searchProducts").removeAttr('disabled');
+                    searchProducts();
+                }else{
+                    $("#searchProducts").attr('disabled', 'disabled');
+                    $.each($('[data-prod-id]'), function(key2, el2){
+                        $(el2).attr('style', 'display: flex!important');
+                        $(el2).children("input").attr('disabled', 'disabled');
+                    });
+                }
+            });
+
+            $("#searchProducts").on('input', function(){
+                if(markets_checked.length > 0)
+                    showdedFunc(this);
             });
         });
     </script>

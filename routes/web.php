@@ -38,7 +38,7 @@ Route::group(['prefix' => 'product'], function (){
 });
 
 Route::group(['prefix' => 'prices'], function () {
-    Route::post('store', 'PricesController@store')->name('product_store');
+    Route::post('store', 'PricesController@store')->name('product_price_store');
 });
 
 Route::group(['prefix' => 'compare'], function () {

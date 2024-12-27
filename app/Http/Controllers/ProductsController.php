@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use App\Models\Products;
 use App\Models\Images;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -21,13 +22,24 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = $this->product::all();
+        $products = $this->product::with('images')->get();
         return view('site.products', ['products' => $products]);
     }
 
     public function getProductInMarkets(Request $request){
-        $products = $this->product::select('id_product')->where('name', 'like', $request->name.'%')->get();
-        return $products;
+        if(isset($request->markets)){
+            $products = $this->product::select('*')
+            ->join('prices', 'prices.fk_product', '=', 'products.id_product')
+            ->rightJoin('markets', function($join) use ($request){
+                $join->on('prices.fk_market', '=', 'markets.id_market')
+                ->whereIn('markets.id_market', $request->markets);
+            })
+            ->where('products.name', 'like', $request->name.'%')
+            ->groupBy('products.id_product')
+            ->having(DB::raw('count(markets.id_market)'), '>=', count($request->markets))
+            ->get();
+            return $products;
+        }
     }
 
     /**
